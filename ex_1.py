@@ -13,16 +13,12 @@ goods = [
 ]
 
 # Реализация задания 1
-for f in field(goods,'color'):#,'title'):
-    print(f)
+#for f in field(goods,'color'):#,'title'):
+ #   print(f)
+#print(', '.join(map(str,field(goods,'color'))))
+print('field generator:')
+print(', '.join(map(str,field(goods,'color','title'))))
+print()
 
-print(' '.join(map(str,gen_random(1,3,5))))
-
-n = 5
-for i,x in enumerate(gen_random(1, 5, n)):
-    # os.write(1, str(x).encode())
-    if i == n-1:
-        print(x)
-    else:
-        print(x, end=', ')
-
+print('random generator:')
+print(', '.join(map(str,gen_random(1,3,5))))
