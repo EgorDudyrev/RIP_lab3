@@ -38,12 +38,14 @@
 
 
 def print_result(func):
-    res = func()
-    print(func.__name__)
-    if type(res) == list:
-        [print(x) for x in res]
-    elif type(res) == dict:
-        [print(key,'=',value) for key,value in res.items()]
-    else:
-        print(res)
-    return func
+    def new_func(*args):
+        res = func(*args)
+        print(func.__name__)
+        if type(res) == list:
+            [print(x) for x in res]
+        elif type(res) == dict:
+            [print(key,'=',value) for key,value in res.items()]
+        else:
+            print(res)
+        return(res)
+    return new_func

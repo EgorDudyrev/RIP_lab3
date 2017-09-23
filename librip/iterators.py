@@ -11,18 +11,19 @@ class Unique(object):
         self.ignore_case = False
         if 'ignore_case' in kwargs:
             self.ignore_case = kwargs['ignore_case']
-        self.returned = []
+        self.returned = set()
 
     def __next__(self):
         # Нужно реализовать __next__
         for item in self.items:
-            if item not in self.returned:
-                if self.ignore_case is True and type(item) == str:
-                    self.returned.append(item.lower())
-                    self.returned.append(item.upper())
-                else:
-                    self.returned.append(item)
-                return item
+            if type(item) == str and self.ignore_case is True:
+                if item.lower() not in self.returned:
+                    self.returned.add(item.lower())
+                    return item
+            else:
+                if item not in self.returned:
+                    self.returned.add(item)
+                    return item
         raise StopIteration()
 
     def __iter__(self):
