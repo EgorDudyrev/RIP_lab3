@@ -23,8 +23,6 @@ with open(path) as f:
 # В реализации функции 4 может быть до 3 строк
 # При этом строки должны быть не длиннее 80 символов
 
-#for k,v in data[0].items():
-#    print(k,v)
 
 @print_result
 def f1(arg):
